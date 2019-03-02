@@ -9,6 +9,6 @@ def subFinder(subject):
     for article in articlefetch.length:
         var publisher=articlefetch[article]["publisher"]
         var content=articlefetch[article]["content"]
-        # list+=stuff
-        list[publisher]=content
+        if publisher!= null && content != null :        
+            list[publisher]=content
     return list
