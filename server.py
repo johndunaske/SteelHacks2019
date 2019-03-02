@@ -1,5 +1,6 @@
-from flask import Flask, render_template
-import sorterer
+from flask import Flask, render_template, request
+import testGCL
+import api
 
 app = Flask(__name__)
 
@@ -9,14 +10,20 @@ def html():
     return render_template('index.html')
 
 
-@app.route('/charts.js')
-def charts():
-    return render_template('charts.js')
+@app.route('/main.js')
+def js():
+    return render_template('main.js')
 
 
-@app.route('/filter')
+@app.route('/data')
 def getData():
-    return sorterer.filter('')
+    result = api.data.subFinder(request.args("subject"))
+    return result
+
+@app.route('/gcl')
+def gcl():
+    result = testGCL.sample_analyze_sentiment(request.args["contents"])
+    return result
 
 
 if __name__ == '__main__':
