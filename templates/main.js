@@ -1,4 +1,3 @@
-//import plotly
 var source = "";
 var articles = [];
 var contents = [];
@@ -16,14 +15,18 @@ function run(subject){
       parseArticles(JSON.parse(xhttp.response));
 
 
-      console.log("working...");
       for (var i = 0; i < contents.length; i++) {
         requesting(contents[i]);
       }
 
+      while (scores.length < contents.length) {
+        console.log("working...");
+      }
+
+      parseData(articles, contents, scores)
+
       }
   };
-  console.log(scores)
 }
 
 function requesting(input) {

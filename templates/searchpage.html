@@ -5,11 +5,12 @@
     <title>NewsMood Search</title>
     <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="charts.js"></script>
 
     </script>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/indexcss.css') }}">
   </head>
-  <body bgcolor="white">
+  <body bgcolor="black">
     <br><br><br>
     <div style="text-align: center;">
       <input id="searchtextbox" type="text" name="searchstring" class="textbox">
@@ -23,6 +24,6 @@
       <p>News articles from NewsApi.org</p>
     </div>
     <div id="tConnotation"></div>
-    <div id="tPercentage" style="width: 500px; height: 500px"></div>
+    <div id="tPercentage"></div>
   </body>
 </html>
