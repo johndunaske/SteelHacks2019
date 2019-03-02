@@ -1,4 +1,4 @@
-import plotly
+//import plotly
 var source = ""
 var article = [""]
 var depressed = []
