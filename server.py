@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import testGCL
+import api
 
 app = Flask(__name__)
 
@@ -10,14 +11,19 @@ def html():
 
 
 @app.route('/main.js')
-def charts():
+def js():
     return render_template('main.js')
 
 
-@app.route('/getresults') #placeholder
+@app.route('/data')
 def getData():
-    result = testGCL.sample_analyze_sentiment(request.args["data"]) #data is a placeholder
-    return sorterer.filter('')
+    result = api.data.subFinder(request.args("subject"))
+    return result
+
+@app.route('/gcl')
+def gcl():
+    result = testGCL.sample_analyze_sentiment(request.args["contents"])
+    return result
 
 
 if __name__ == '__main__':
