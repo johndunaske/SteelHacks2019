@@ -1,4 +1,4 @@
-var data = [
+var barData = [
   {
     type: 'bar',
     x: ['News Source 1', 'News Source 2', 'News Source 3'],
@@ -22,15 +22,15 @@ var data = [
 
 Plotly.newPlot('tConnotation', data);
 
-var data = [{
+var piData = [{
   values: [19, 26, 55],
   labels: ['Positive Connotation', 'Negative Connotation'],
   type: 'pie'
 }];
 
-var layout = {
+var piLayout = {
   height: 400,
   width: 500
 };
 
-Plotly.newPlot('tPercentage', data, layout);
+Plotly.newPlot('tPercentage', piData, piLayout);
