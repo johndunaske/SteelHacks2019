@@ -22,7 +22,7 @@ def sample_analyze_sentiment(content):
 
     response = client.analyze_sentiment(document)
     sentiment = response.document_sentiment
-    return format(sentiment.score)
+    return format(float(sentiment.score))
     #print('Magnitude: {}'.format(sentiment.magnitude))
 
     # [END language_sentiment_text_core]
@@ -33,7 +33,7 @@ def sample_analyze_sentiment(content):
 
 def main():
     # FIXME: Convert argv from strings to the correct types.
-    print("the score of this is: " + sample_analyze_sentiment("Please kill murder me hate hate. I wanna die in many many ways murder doom gloom kill stab."))
+    print("the score of this is: " + str(sample_analyze_sentiment("Please kill murder me hate hate. I wanna die in many many ways murder doom gloom kill stab.")))
 
 
 if __name__ == '__main__':
