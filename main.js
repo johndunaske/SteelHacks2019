@@ -1,6 +1,7 @@
 //import plotly
 var source = ""
-var article = [""]
+var article = []
+var singleArticle = ""
 var depressed = []
 function pub(){
   source = "Publication"
@@ -55,5 +56,14 @@ function subFinder(subject){
     return list
 }
 function urlFinder(url){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function(){
+      if (this.readyState === 4 && this.status === 200){
+      singleArticle = this.response;
 
+
+      }
+  };
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
 }
