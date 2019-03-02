@@ -30,6 +30,10 @@ def res():
 def resm():
     return render_template('js/resume.min.js')
 
+@app.route('/static/styles/resume.min.css')
+def resmcss():
+    return render_template('static/styles/resume.min.css')
+
 @app.route('/js/resume.min.js')
 def jsresm():
     return render_template('js/resume.min.js')
