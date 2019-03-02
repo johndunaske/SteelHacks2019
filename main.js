@@ -17,7 +17,7 @@ function run(subject){
         xhttp.send();
         xhttp.onreadystatechange = function() {
           if (this.readyState === 4 && this.status === 200) {
-            response = this.response';
+            response = this.response;
             scores.push(JSON.parse(this.response));
           }
         }
@@ -28,7 +28,7 @@ function run(subject){
 }
 
 function parseArticles(kvs) {
-  for (var keys = Object.keys(kvs)) {
+  for (var keys in Object.keys(kvs)) {
     articles.push(keys);
     content.push(kvs[keys]);
   }
