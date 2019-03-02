@@ -29,12 +29,3 @@ def sample_analyze_sentiment(content):
 
 
 # [END language_sentiment_text]
-
-
-def main():
-    # FIXME: Convert argv from strings to the correct types.
-    print("the score of this is: " + str(sample_analyze_sentiment("Please kill murder me hate hate. I wanna die in many many ways murder doom gloom kill stab.")))
-
-
-if __name__ == '__main__':
-    main()

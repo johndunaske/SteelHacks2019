@@ -1,14 +1,15 @@
-import requests
+import urllib
+import ast
 
 def subFinder(subject):
-    url = ('https://newsapi.org/v2/everything?q='+subject+'&from=2019-02-28&sortBy=popularity&apiKey=21993a36882f4eb48b98a4a27e20f4ec')
-    response = requests.get(url)
-    articlefetch=response["articles"]
-    list={}
-    var stuff= data()
-    for article in articlefetch.length:
-        var publisher=articlefetch[article]["publisher"]
-        var content=articlefetch[article]["content"]
-        # list+=stuff
-        list[publisher]=content
-    return list
+    url = ('https://newsapi.org/v2/everything?q='+subject+'&from=2019-02-28&sortBy=popularity&language=en&apiKey=21993a36882f4eb48b98a4a27e20f4ec')
+    response = urllib.urlopen(url)
+    null = None
+    jso = eval(response.read())
+
+    ret = {}
+    #print(jso['articles'])
+    for key in jso['articles']:
+        print(key["title"])
+        ret.update({key['source']['name']: key['title']})
+    return ret

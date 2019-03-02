@@ -12,12 +12,13 @@ function run(subject){
       if (this.readyState === 4 && this.status === 200){
       parseArticles(JSON.parse(this.response));
 
-      for (var str in contents) {
+      for (var str of contents) {
         xhttp.open("GET", "/gcl?contents=" + str);
         xhttp.send();
         xhttp.onreadystatechange = function() {
           if (this.readyState === 4 && this.status === 200) {
             response = this.response;
+            console.log(response)
             scores.push(JSON.parse(this.response));
           }
         }
@@ -25,11 +26,12 @@ function run(subject){
 
       }
   };
+  //console.log(scores)
 }
 
 function parseArticles(kvs) {
-  for (var keys in Object.keys(kvs)) {
+  for (var keys of Object.keys(kvs)) {
     articles.push(keys);
-    content.push(kvs[keys]);
+    contents.push(kvs[keys]);
   }
 }
