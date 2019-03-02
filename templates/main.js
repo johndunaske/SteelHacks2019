@@ -16,6 +16,7 @@ function run(subject){
       parseArticles(JSON.parse(xhttp.response));
 
 
+      console.log("working...");
       for (var i = 0; i < contents.length; i++) {
         requesting(contents[i]);
       }
@@ -39,9 +40,11 @@ function requesting(input) {
   xhttp2.send();
 }
 
-function parseArticles(kvs) {
-  for (var keys of Object.keys(kvs)) {
-    articles.push(keys);
-    contents.push(kvs[keys]);
+function parseArticles(kvsL) {
+  for (var i in kvsL) {
+    for (var keys of Object.keys(kvsL[i])) {
+      articles.push(keys);
+      contents.push(kvsL[i][keys]);
+    }
   }
 }
