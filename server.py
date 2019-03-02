@@ -18,6 +18,10 @@ def html():
 def js():
     return render_template('main.js')
 
+@app.route('/charts.js')
+def charts():
+    return render_template('charts.js')
+
 @app.route('/indexcss.css')
 def css():
     return render_template('indexcss.css')
