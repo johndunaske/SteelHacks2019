@@ -33,7 +33,7 @@ def sample_analyze_sentiment(content):
 
 def main():
     # FIXME: Convert argv from strings to the correct types.
-    print("the score of this is: " + sample_analyze_sentiment("Please kill murder me hate hate. I wanna die in many many ways murder doom gloom kill stab."))
+    print("the score of this is: " + sample_analyze_sentiment("Please kill murder me hate hate. I wanna die in many many ways murder doom gloom kill stab death, bronx."))
 
 
 if __name__ == '__main__':
