@@ -1,5 +1,9 @@
+#!/usr/bin/python
+# -*- coding: iso-8859-5 -*-
+
 import urllib
 import ast
+#import HTMLParser as h
 
 def subFinder(subject):
     url = ('https://newsapi.org/v2/everything?q='+subject+'&from=2019-02-28&sortBy=popularity&language=en&apiKey=21993a36882f4eb48b98a4a27e20f4ec')
@@ -10,6 +14,7 @@ def subFinder(subject):
     ret = {}
     #print(jso['articles'])
     for key in jso['articles']:
-        print(key["title"])
+
+        #print(key['title'])
         ret.update({key['source']['name']: key['title']})
     return ret

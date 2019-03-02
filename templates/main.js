@@ -5,28 +5,38 @@ var contents = [];
 var scores = [];
 
 function run(subject){
+  scores = [];
+  contents = [];
+  articles = [];
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", "/data?subject=" + subject);
   xhttp.send();
   xhttp.onreadystatechange = function(){
-      if (this.readyState === 4 && this.status === 200){
-      parseArticles(JSON.parse(this.response));
+      if (xhttp.readyState === 4 && xhttp.status === 200){
+      parseArticles(JSON.parse(xhttp.response));
 
-      for (var str of contents) {
-        xhttp.open("GET", "/gcl?contents=" + str);
-        xhttp.send();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState === 4 && this.status === 200) {
-            response = this.response;
-            console.log(response)
-            scores.push(JSON.parse(this.response));
-          }
-        }
+
+      for (var i = 0; i < contents.length; i++) {
+        requesting(contents[i]);
       }
 
       }
   };
-  //console.log(scores)
+  console.log(scores)
+}
+
+function requesting(input) {
+  xhttp2 = new XMLHttpRequest();
+  xhttp2.open("GET", "/gcl?contents=" + input, false)
+  xhttp2.onreadystatechange = function() {
+    if (xhttp2.readyState === 4 && xhttp2.status === 200) {
+      response = xhttp2.response;
+      jso = JSON.parse(response);
+      scores.push(jso);
+    }
+  };
+
+  xhttp2.send();
 }
 
 function parseArticles(kvs) {

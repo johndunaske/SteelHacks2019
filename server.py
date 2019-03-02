@@ -1,9 +1,10 @@
-
+#!/usr/bin/python
+# -*- coding: iso-8859-5 -*-
 
 from flask import Flask, render_template, request
 import json
 import testGCL
-import api
+import api#
 
 app = Flask(__name__)
 
@@ -29,10 +30,9 @@ def getData():
 
 @app.route('/gcl')
 def gcl():
-    arg = request.args["contents"].replace("ΓÇÖ", "'")
+    arg = request.args["contents"].encode('utf-8')
     result = testGCL.sample_analyze_sentiment(arg)
-    print(arg.encode("utf-8"))
-    return json.dumps(result)
+    return json.dumps(str(result))
 
 
 if __name__ == '__main__':
