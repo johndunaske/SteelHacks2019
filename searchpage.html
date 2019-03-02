@@ -12,8 +12,8 @@
   <body bgcolor="black">
     <br><br><br>
     <div style="text-align: center;">
-      <input type="searchtextbox" name="searchstring" class="textbox">
-      <button onclick="run()" type="button" id="publication" class="styled">Search</button>
+      <input id="searchtextbox" type="text" name="searchstring" class="textbox">
+      <button onclick="run(document.getElementById('searchtextbox').value)" type="button" id="publication" class="styled">Search</button>
     </div>
     <br><br><br>
     <div style="text-align: center;">
